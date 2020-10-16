@@ -10,63 +10,6 @@ print("""
 print("-----------------------------------")
 print("<?> Enter Number Like This:530000000 <?>")
 Target = input("<%> Enter phone Number:")
-def info():
-    head = {
-        'accept': '*/*',
-        'accept-encoding': 'gzip, deflate, br',
-        'accept-language': 'en-US,en;q=0.9,ar;q=0.8',
-        'content-length': '55',
-        'content-type': 'application/x-www-form-urlencoded',
-        'cookie': 'ig_did=C85526B3-D56D-4C62-9955-A0FEDCEEF1B2; mid=XtRWJAALAAGDUx-1-NNLph8FvNQS; shbid=13522; shbts=1593969544.8718596; rur=FRC; csrftoken=92L3g6joMsjBqf61UOsQmjpoHf3reSFv; urlgen="{\"2001:16a2:1339:aa00:4c09:f79e:5aa3:bca3\": 25019}:1jsLuJ:SeoqLoKY8TPu7D3BCIcgfDXOm7Q"',
-        'dnt': '1',
-        'origin': 'https://www.instagram.com',
-        'referer': 'https://www.instagram.com/accounts/password/reset/',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
-        'x-csrftoken': '92L3g6joMsjBqf61UOsQmjpoHf3reSFv',
-        'x-ig-app-id': '936619743392459',
-        'x-ig-www-claim': 'hmac.AR20oU9cC9AGn6Sd8PyDrHogb3ZFG9fAWLqSuqNBSRHpj0Ll',
-        'x-instagram-ajax': 'fc31028544fb',
-        'x-requested-with': 'XMLHttpRequest'
-    }
-    url = "https://www.instagram.com/accounts/account_recovery_send_ajax/"
-    data = {
-        'email_or_username': Target
-    }
-    send = requests.post(url, data=data, headers=head)
-    if send.text.find('"email_or_sms_sent": true'):
-        print("<+> Found in instagram -->",Target," "+"<+>")
-    else:
-        print("<@> Not Found in instagram <@>")
-def snap():
-    url_snap  = "https://accounts.snapchat.com/accounts/password_reset/phone"
-    headers = {
-        "accept": "*/*",
-        "accept-encoding": "gzip, deflate, br",
-        "accept-language": "ar,en-US;q=0.9,en;q=0.8",
-        "content-length": "627",
-        "content-type": "application/x-www-form-urlencoded; charset=utf-8",
-        "cookie": "xsrf_token=NNTkSOcfRdu0Kte3JcJobQ; Preferences=true; sc-cookies-accepted=true; Marketing=true; Performance=true; _gcl_au=1.1.210423149.1599945376; _scid=fd3bbd77-ed56-41ac-a77e-75ef0a2406bd; _sctr=1|1599944400000; sc_at=v2|H4sIAAAAAAAAAE3GwQ2AMAwEwYosbYwdOXRzKLiKFM+Xec2VuRW40b0sPGWPhFUJ3j2b8jOCe0xYgNf5lQ/kaGNEQAAAAA==; web_client_id=f1c7a2a4-b540-4269-8d4f-1c40a1d25204; _sca={%22cid%22:%22e2350e2f-e654-4c4d-a916-31c7adbed2a2%22%2C%22token%22:%22v1.key.2020-03-05_UKiB4eNE.iv.JwV+steVp1954/n6.PBtu1jYn4UqR+S0h3W9qNXnRwAFdh8AIclMRrcBmNOHShI01v6wofPP5Yzr+WSOB8ReJ6PTvZTPnKp9ZetiGRog0L32ytAXnKlVYUQVaAnaqCtNc%22}",
-        "origin": "https://accounts.snapchat.com",
-        "referer": "https://accounts.snapchat.com/",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "same-origin",
-        "sec-fetch-site": "same-origin",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36"
-    }
-    data = {
-        "phone_number": Target,
-        "phone_country_code": "SA",
-        "xsrf_token": "NNTkSOcfRdu0Kte3JcJobQ",
-        "g-recaptcha-response": "g-recaptcha-response: 03AGdBq26KzMMQaWRK9hS2iYmwvQRDVsDkvnFZHI7DhA01NYPwX9LqI5JOqoWl1w_yQC4YPDxY9iKCPDAZPMHHCRqZBuSDUAhMv0oCw6PkNE0K5M4O_gxulWaSHJcBrPIvQpABJXdXGuoT23mn-DUhX0bx1Vr9kVKtbVSJgVAB7dBRUZSiJ0Bf6drppefSDvO81lXHWAO49dKPw6uZBZmx6q82EV6TOfviPsmUTudKVkT-Bfv-c1Awpu32bLRwVDtReimfJ3lnIlLnQmGVtSjiK06Y4z39YlqtKD5yOgZUwqJ57A1L6zwig42oWib3s0Yt0sdxwnpuBSic6ZhW3YmWgOIZggh0slLQH8Bw3-hux6yYnYiyfJECs36L0gOvIHzf4lVTlHCCYtcqkYAb3s7lPzfbMVVpRHuzdvPZkI0y4Ylx8Nqds6o3rj96cdH9rj1TGxh8EMMYJ0hKoL9qFWqUCBEYtRbgjCjQDk2rtlDE6997z59UMF_DsI7Y8qKoQy36yX_NAZTbo-kQuyAH0-jEbBN90GU4cF2KwQ"
-    }
-    snap1 = requests.post(url_snap,headers=headers,data=data)
-    if snap1.text.find('{"status":400,"errorKey":"VERIFY_CAPTCHA_FAILED","message":"","content":{}}'):
-        print("<!> CAPTCHA <!> ")
-    else:
-        print("<+> Found in Snap Chat -->",Target," "+"<+>")
 def nams():
     url = "http://146.148.112.105/caller/index.php/UserManagement/search_number?number=" + Target + "&country_code=SA"
     r = requests.get(url)
@@ -80,8 +23,6 @@ def nams():
             print("<!> This Number was hacker (: ... we Dont have info <!>")
 
 nams()
-snap()
-info()
 print("<^> Done enter to exite <^>")
 out = input("")
 exit()
